@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Clients</title>
+</head>
+<body>
+    <h1>Clients</h1>
+
+    <span th:text="${message}">Message...</span>
+
+    <form th:action="@{/}" th:object="${client}" method="post">
+        <span th:errors="*{*}">Error message</span>
+        <input th:field="*{name}" />
+        <input th:field="*{balance}" />
+        <button type="submit" />Create client</button>
+    </form>
+    <br>
+    <table>
+        <tr th:each="client: ${clients}">
+            <td th:text="${client.id}">15</td>
+            <td th:text="${client.name}">Teszt Elek</td>
+            <td th:text="${client.balance}">800000</td>
+        </tr>
+    </table>
+</body>
+</html>
