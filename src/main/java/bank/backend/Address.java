@@ -1,5 +1,7 @@
 package bank.backend;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -18,6 +20,7 @@ public class Address {
     }
 
     @ManyToOne
+    @JsonIgnore
     private Client client;
 
     public Address(String city, String line1) {
